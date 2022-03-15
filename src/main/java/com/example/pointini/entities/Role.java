@@ -1,5 +1,7 @@
 package com.example.pointini.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -8,12 +10,14 @@ import java.util.List;
 @Entity
 public class Role implements Serializable {
     @Id
-    private int id;
+    private Long id;
     private String libelle;
-    @OneToMany (mappedBy="id")
+
+    //@JsonIgnore
+    @OneToMany(mappedBy="role")
     private List<User> user;
 
-    public Role(int id, String libelle) {
+    public Role(Long id, String libelle) {
         this.id = id;
         this.libelle = libelle;
     }
@@ -22,11 +26,11 @@ public class Role implements Serializable {
 
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

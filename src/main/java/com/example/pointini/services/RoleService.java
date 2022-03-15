@@ -20,13 +20,7 @@ public class RoleService implements RoleServiceI {
 
     @Override
     public Role findRoleById(Long id) {
-        Optional<Role> utOptional=roleRepository.findById(id);
-        if(utOptional==null) {
-            return null;
-        }else {
-            return utOptional.get();
-        }
-
+            return roleRepository.findById(id).get();
     }
 
     @Override

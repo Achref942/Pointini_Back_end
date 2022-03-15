@@ -11,7 +11,7 @@ import java.util.List;
 @RequestMapping(path="/Role")
 public class RoleControllers {
     @Autowired
-    private RoleService roleService;
+    public RoleService roleService;
     @GetMapping(path = "/")
     public List<Role> getAllRole() {
         return roleService.getAllRole();

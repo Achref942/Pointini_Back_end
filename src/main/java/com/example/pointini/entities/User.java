@@ -1,4 +1,5 @@
 package com.example.pointini.entities;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.type.TextType;
 import javax.persistence.*;
 import java.io.Serializable;
@@ -24,6 +25,8 @@ public class User implements Serializable {
     private String username;
     private String password;
 
+
+    @JsonIgnore
     @ManyToOne
     private Role role;
 

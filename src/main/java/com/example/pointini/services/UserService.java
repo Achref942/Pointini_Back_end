@@ -1,6 +1,8 @@
 package com.example.pointini.services;
 
+import com.example.pointini.entities.Role;
 import com.example.pointini.entities.User;
+import com.example.pointini.repository.RoleRepository;
 import com.example.pointini.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +16,9 @@ public class UserService implements UserServiceI {
     @Autowired
     public UserRepository userRepository;
 
+    @Autowired
+    public RoleService roleService ;
+
     @Override
     public List<User> getAllUser() {
 
@@ -22,17 +27,12 @@ public class UserService implements UserServiceI {
 
     @Override
     public User findUserById(Long id) {
-        Optional<User> utOptional=userRepository.findById(id);
-        if(utOptional==null) {
-            return null;
-        }else {
-            return utOptional.get();
-        }
+        return userRepository.findById(id).get();
 
     }
 
     @Override
-    public User CreateUser(User u) {
+    public User createUser(User u) {
 
         return userRepository.save(u);
     }
@@ -47,7 +47,14 @@ public class UserService implements UserServiceI {
         return userRepository.findByRole(libelle);
     }
 
+    @Override
+    public User addRoleUser(Long idUser, Long idRole) {
+        User user= this.findUserById(idUser);
+        Role role= this.roleService.findRoleById(idRole);
+        user.setRole(role);
+        return this.updateUser(user);
 
+    }
 
 
 //    @Override

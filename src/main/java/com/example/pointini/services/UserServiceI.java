@@ -1,5 +1,6 @@
 package com.example.pointini.services;
 
+import com.example.pointini.entities.Role;
 import com.example.pointini.entities.User;
 
 import java.util.List;
@@ -9,11 +10,13 @@ public interface UserServiceI {
 
     User findUserById(Long id);
 
-    User CreateUser(User u);
+    User createUser(User u);
 
     User updateUser(User u);
 
     List<User> findByRole(String libelle);
+
+    User  addRoleUser (Long idUser,Long idRole);
 
 
     //    @Override
