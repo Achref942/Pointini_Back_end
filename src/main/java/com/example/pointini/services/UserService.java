@@ -56,6 +56,16 @@ public class UserService implements UserServiceI {
 
     }
 
+    @Override
+    public List<User> findByFirstName(String firstName) {
+        return userRepository.findByFirstName(firstName);
+    }
+
+    @Override
+    public List<User> findByFirstNameAndLastName(String firstName, String lastName) {
+        return userRepository.findByFirstNameAndLastName(firstName,lastName);
+    }
+
 
 //    @Override
 //    public void delete(Long id) {

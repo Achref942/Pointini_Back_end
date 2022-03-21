@@ -15,11 +15,13 @@ import java.util.List;
 @NoArgsConstructor
 public class Role implements Serializable {
     @Id
+    @GeneratedValue
     private Long id;
     private String libelle;
 
     //@JsonIgnore
     @OneToMany(mappedBy = "role")
     private List<User> user;
+
 
 }

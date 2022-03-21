@@ -18,6 +18,10 @@ public interface UserServiceI {
 
     User  addRoleUser (Long idUser,Long idRole);
 
+    List<User>  findByFirstName(String firstName);
+
+    List<User> findByFirstNameAndLastName(String firstName,String lastName);
+
 
     //    @Override
     //    public void delete(Long id) {

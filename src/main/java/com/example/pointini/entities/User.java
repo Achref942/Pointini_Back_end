@@ -21,8 +21,8 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nom;
-    private String prenom;
+    private String firstName;
+    private String lastName;
     private String email;
     private TextType adresse;
     private double salaire;
@@ -36,6 +36,7 @@ public class User implements Serializable {
     @JsonIgnore
     @ManyToOne
     private Role role;
+
 
 
 }
