@@ -1,4 +1,4 @@
-package com.example.pointini.services;
+package com.example.pointini.services.Interface;
 
 import com.example.pointini.entities.Role;
 import com.example.pointini.entities.User;

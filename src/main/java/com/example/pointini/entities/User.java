@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.type.TextType;
+
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -36,6 +38,7 @@ public class User implements Serializable {
     @JsonIgnore
     @ManyToOne
     private Role role;
+
 
 
 

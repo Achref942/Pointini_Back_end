@@ -1,11 +1,10 @@
-package com.example.pointini.services;
+package com.example.pointini.services.Interface;
 
-import com.example.pointini.entities.Role;
 import com.example.pointini.entities.User;
 
 import java.util.List;
 
-public interface UserServiceI {
+public interface UserServiceI  {
     List<User> getAllUser();
 
     User findUserById(Long id);
@@ -21,6 +20,9 @@ public interface UserServiceI {
     List<User>  findByFirstName(String firstName);
 
     List<User> findByFirstNameAndLastName(String firstName,String lastName);
+
+    User findByEmail(String email);
+
 
 
     //    @Override

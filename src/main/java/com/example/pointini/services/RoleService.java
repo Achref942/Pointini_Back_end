@@ -2,11 +2,12 @@ package com.example.pointini.services;
 
 import com.example.pointini.entities.Role;
 import com.example.pointini.repository.RoleRepository;
+import com.example.pointini.services.Interface.RoleServiceI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
+
 @Service
 public class RoleService implements RoleServiceI {
     @Autowired

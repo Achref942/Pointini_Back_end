@@ -2,13 +2,14 @@ package com.example.pointini.services;
 
 import com.example.pointini.entities.Role;
 import com.example.pointini.entities.User;
-import com.example.pointini.repository.RoleRepository;
 import com.example.pointini.repository.UserRepository;
+import com.example.pointini.services.Interface.UserServiceI;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserService implements UserServiceI {
@@ -65,6 +66,20 @@ public class UserService implements UserServiceI {
     public List<User> findByFirstNameAndLastName(String firstName, String lastName) {
         return userRepository.findByFirstNameAndLastName(firstName,lastName);
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public User findByEmail(String email) {
+        User user = null;
+        try {
+            user = userRepository.findByEmail(email);
+        } catch (Exception e) {
+            throw e;
+        }
+        return user;
+    }
+
+
 
 
 //    @Override

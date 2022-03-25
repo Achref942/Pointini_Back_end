@@ -1,22 +1,28 @@
 package com.example.pointini.controllers;
 
-import com.example.pointini.entities.Role;
 import com.example.pointini.entities.User;
+import com.example.pointini.entities.UserLogin;
 import com.example.pointini.requests.FirstNameAndLastNameRequest;
+import com.example.pointini.services.UserLoginService;
 import com.example.pointini.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+import java.util.Objects;
 
 @RestController
+
 @RequestMapping(path="/user")
 public class UserControllers {
     @Autowired
     public UserService userService;
+    @Autowired
+    public UserLoginService Login ;
 
     @GetMapping(path = "/")
     public List<User> getAllUser() {
@@ -30,6 +36,7 @@ public class UserControllers {
 
     @PostMapping(path = "/")
     public User createUser(@RequestBody User u) {
+
         return userService.createUser(u);
     }
 
@@ -75,5 +82,40 @@ public class UserControllers {
         }
 
     }
+
+
+    @GetMapping("/login")
+
+    public ModelAndView login() {
+        ModelAndView mav = new ModelAndView("login");
+        mav.addObject("user", new UserLogin());
+        return mav;
+    }
+
+
+    @PostMapping("/login/{email}/{password}")
+    public  String login(@PathVariable String email, @PathVariable String password ) {
+        UserLogin userLogin = Login.login(email,password);
+
+        System.out.print(userLogin);
+        if(Objects.nonNull(userLogin))
+        {
+
+            return "mt3aditch";
+
+
+        } else {
+            return  "T3zdit";
+
+
+        }
+
+    }
+
+
+
+
+
+
 
     }
