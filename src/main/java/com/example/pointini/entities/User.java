@@ -25,6 +25,7 @@ public class User implements Serializable {
 
     private String firstName;
     private String lastName;
+    @Column(unique=true, nullable=false)
     private String email;
     private TextType adresse;
     private double salaire;
@@ -38,7 +39,6 @@ public class User implements Serializable {
     @JsonIgnore
     @ManyToOne
     private Role role;
-
 
 
 

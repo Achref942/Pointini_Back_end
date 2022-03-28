@@ -23,6 +23,9 @@ public interface UserServiceI  {
 
     User findByEmail(String email);
 
+    List<User> findByPassword(String password);
+
+
 
 
     //    @Override
