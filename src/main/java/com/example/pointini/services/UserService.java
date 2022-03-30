@@ -20,8 +20,7 @@ public class UserService implements UserServiceI {
 
     @Autowired
     public RoleService roleService;
-    @Autowired
-    public PointageService pointageService;
+
 
     @Override
     public List<User> getAllUser() {

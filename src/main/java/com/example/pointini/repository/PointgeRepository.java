@@ -6,7 +6,11 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 public interface PointgeRepository extends JpaRepository<Pointage, Long> {
-    @Query("SELECT p.etat FROM Pointage p WHERE p.etat =false AND p.user=:user")
-    boolean CheckEtatByUserId(@Param("user") Long id);
+
+    @Query("SELECT p FROM Pointage p WHERE p.etat =0 ")
     Pointage findPointageByUserId(Long idUser);
+
+//    Long CheckedPointageByUserId(@Param("user") Long id);
+  Pointage findPointageById (Long id);
+
 }

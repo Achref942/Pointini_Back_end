@@ -21,7 +21,6 @@ public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id;
 
     private String firstName;
@@ -40,6 +39,7 @@ public class User implements Serializable {
     @JsonIgnore
     @ManyToOne
     private Role role;
+    @JsonIgnore
     @OneToMany(mappedBy = "user")
     private List<Pointage> pointage;
 

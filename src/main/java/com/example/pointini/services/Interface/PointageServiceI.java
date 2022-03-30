@@ -10,13 +10,12 @@ public interface PointageServiceI {
 
     Pointage findPointageByUserId(Long idUser);
 
+ Pointage findPointageById(Long id);
+
     Pointage updatePointage(Pointage pointage, Long id);
-
-    Pointage findPointageById(Long id);
-
 
     List<Pointage> getAllPointage();
 
-
     Pointage checkPointage(Long idUser);
+
 }

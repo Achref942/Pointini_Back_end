@@ -25,7 +25,7 @@ public class PointageControllers {
         return pointageService.getAllPointage();
     }
 
-//    //create Pointage entree
+    //    //create Pointage entree
 //    @PostMapping(path = "/createPointageIN")
 //    public Pointage createPointageIN(@RequestBody Pointage pointage) {
 //       pointage.setArrive(LocalDateTime.now());
@@ -41,20 +41,23 @@ public class PointageControllers {
 //        pointage.setSortir(LocalDateTime.now());
 //        return pointageService.updatePointage(pointage);
 //    }
-@PostMapping(path = "/{id}")
-public Pointage createPointage(@RequestBody Pointage pointage ,@PathVariable Long idUser) {
-    return pointageService.createPointage(pointage,idUser);
-}
-    @PutMapping(path = "/{id}")
-    public Pointage updatePointage(@RequestBody Pointage pointage ,@PathVariable Long idUser) {
-        return pointageService.updatePointage(pointage,idUser);
+    @GetMapping(path = "/createPointage/{idUser}")
+    public Pointage createPointage(@RequestBody Pointage pointage, @PathVariable Long idUser) {
+
+        return pointageService.createPointage(pointage, idUser);
     }
 
-    @GetMapping(path = "/{id}")
-    public Pointage findPointageById(@PathVariable Long id) {
-        return pointageService.findPointageById(id);
+    @PutMapping(path = "/update/{idUser}")
+    public Pointage updatePointage(@RequestBody Pointage pointage, @PathVariable Long idUser) {
+        return pointageService.updatePointage(pointage, idUser);
     }
-//    @PostMapping(path = "/addPointageUser/{idUser}/{idPointage}")
+
+    @GetMapping(path = "/{idUser}")
+    public Pointage findPointageById(@PathVariable Long idUser) {
+        return pointageService.findPointageById(idUser);
+    }
+
+    //    @PostMapping(path = "/addPointageUser/{idUser}/{idPointage}")
 //    public Pointage addPointageUser(@PathVariable Pointage pointage, @PathVariable Long id) {
 //        return  pointageService.createPointage(pointage,id);
 //    }
@@ -62,9 +65,14 @@ public Pointage createPointage(@RequestBody Pointage pointage ,@PathVariable Lon
     public boolean CheckEtatByUserId(@PathVariable Long id) {
     return pointageService.CheckEtatByUserId(id);
 }*/
-@GetMapping(path ="/pointage/{idUser}")
-    public Pointage checkPointage(@PathVariable Long idUser)
-{
-    return  pointageService.checkPointage(idUser);
-}
+    @GetMapping(path = "/checkPointage/{idUser}")
+    public Pointage checkPointage(@PathVariable Long idUser) {
+        System.out.println(idUser);
+        return pointageService.checkPointage(idUser);
+    }
+
+    @GetMapping(path = "/find/{idUser}")
+    Pointage findPointageByUserId(@PathVariable Long idUser) {
+        return pointageService.findPointageByUserId(idUser);
+    }
 }
