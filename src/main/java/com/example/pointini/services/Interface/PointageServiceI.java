@@ -8,9 +8,8 @@ import java.util.List;
 public interface PointageServiceI {
     Pointage createPointage(Pointage pointage, Long id);
 
-    Pointage findPointageByUserId(Long idUser);
+    Pointage findPointageByUserIdAndEtat(Long idUser,int etat);
 
- Pointage findPointageById(Long id);
 
     Pointage updatePointage(Pointage pointage, Long id);
 

@@ -25,22 +25,6 @@ public class PointageControllers {
         return pointageService.getAllPointage();
     }
 
-    //    //create Pointage entree
-//    @PostMapping(path = "/createPointageIN")
-//    public Pointage createPointageIN(@RequestBody Pointage pointage) {
-//       pointage.setArrive(LocalDateTime.now());
-//       pointage.setDate(LocalDate.now());
-//        return pointageService.createPointage(pointage);
-//    }
-//
-//
-//    //create Pointage sortie
-//    @PostMapping(path = "/createPointageOUt/{id}")
-//    public Pointage createPointageOUt(@PathVariable Long id) {
-//        Pointage pointage=pointageService.findPointageById(id);
-//        pointage.setSortir(LocalDateTime.now());
-//        return pointageService.updatePointage(pointage);
-//    }
     @GetMapping(path = "/createPointage/{idUser}")
     public Pointage createPointage(@RequestBody Pointage pointage, @PathVariable Long idUser) {
 
@@ -52,19 +36,7 @@ public class PointageControllers {
         return pointageService.updatePointage(pointage, idUser);
     }
 
-    @GetMapping(path = "/{idUser}")
-    public Pointage findPointageById(@PathVariable Long idUser) {
-        return pointageService.findPointageById(idUser);
-    }
 
-    //    @PostMapping(path = "/addPointageUser/{idUser}/{idPointage}")
-//    public Pointage addPointageUser(@PathVariable Pointage pointage, @PathVariable Long id) {
-//        return  pointageService.createPointage(pointage,id);
-//    }
-/*@GetMapping(path = "/CheckEtatByUserId/{id}")
-    public boolean CheckEtatByUserId(@PathVariable Long id) {
-    return pointageService.CheckEtatByUserId(id);
-}*/
     @GetMapping(path = "/checkPointage/{idUser}")
     public Pointage checkPointage(@PathVariable Long idUser) {
         System.out.println(idUser);
@@ -73,6 +45,6 @@ public class PointageControllers {
 
     @GetMapping(path = "/find/{idUser}")
     Pointage findPointageByUserId(@PathVariable Long idUser) {
-        return pointageService.findPointageByUserId(idUser);
+        return pointageService.findPointageByUserIdAndEtat(idUser, 0);
     }
 }

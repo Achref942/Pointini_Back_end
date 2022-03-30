@@ -20,8 +20,8 @@ public class PointageService implements PointageServiceI {
     public UserService userService;
 
     @Override
-    public Pointage findPointageByUserId(Long idUser) {
-        return pointgeRepository.findPointageByUserId(idUser);
+    public Pointage findPointageByUserIdAndEtat(Long idUser,int etat) {
+        return pointgeRepository.findPointageByUserIdAndEtat(idUser,etat);
     }
 
     @Override
@@ -34,10 +34,6 @@ public class PointageService implements PointageServiceI {
         pointage.setEtat(0);
         return pointgeRepository.save(pointage);
 
-    }
-    @Override
-    public Pointage findPointageById(Long id){
-        return pointgeRepository.findPointageById(id);
     }
 
     @Override
@@ -62,8 +58,8 @@ public class PointageService implements PointageServiceI {
     @Override
     public Pointage checkPointage(Long idUser) {
 
-        if (pointgeRepository.findPointageByUserId(idUser) !=null) {
-            Pointage pointage = this.findPointageByUserId(idUser);
+        if (pointgeRepository.findPointageByUserIdAndEtat(idUser,0) !=null) {
+            Pointage pointage = this.findPointageByUserIdAndEtat(idUser,0);
 
             this.updatePointage(pointage, idUser);
             return pointage;
