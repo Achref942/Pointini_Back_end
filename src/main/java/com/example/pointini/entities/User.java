@@ -10,7 +10,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Date;
-
+import java.util.List;
 
 
 @Entity
@@ -21,6 +21,7 @@ public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
 
     private String firstName;
@@ -39,6 +40,10 @@ public class User implements Serializable {
     @JsonIgnore
     @ManyToOne
     private Role role;
+    @OneToMany(mappedBy = "user")
+    private List<Pointage> pointage;
+
+
 
 
 

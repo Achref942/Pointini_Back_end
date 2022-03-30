@@ -1,5 +1,6 @@
 package com.example.pointini.services;
 
+import com.example.pointini.entities.Pointage;
 import com.example.pointini.entities.Role;
 import com.example.pointini.entities.User;
 import com.example.pointini.repository.UserRepository;
@@ -18,7 +19,9 @@ public class UserService implements UserServiceI {
     public UserRepository userRepository;
 
     @Autowired
-    public RoleService roleService ;
+    public RoleService roleService;
+    @Autowired
+    public PointageService pointageService;
 
     @Override
     public List<User> getAllUser() {
@@ -43,6 +46,7 @@ public class UserService implements UserServiceI {
         return userRepository.save(u);
 
     }
+
     @Override
     public List<User> findByRole(String libelle) {
         return userRepository.findByRole(libelle);
@@ -50,8 +54,8 @@ public class UserService implements UserServiceI {
 
     @Override
     public User addRoleUser(Long idUser, Long idRole) {
-        User user= this.findUserById(idUser);
-        Role role= this.roleService.findRoleById(idRole);
+        User user = this.findUserById(idUser);
+        Role role = this.roleService.findRoleById(idRole);
         user.setRole(role);
         return this.updateUser(user);
 
@@ -64,7 +68,7 @@ public class UserService implements UserServiceI {
 
     @Override
     public List<User> findByFirstNameAndLastName(String firstName, String lastName) {
-        return userRepository.findByFirstNameAndLastName(firstName,lastName);
+        return userRepository.findByFirstNameAndLastName(firstName, lastName);
     }
 
     @Override
@@ -78,11 +82,12 @@ public class UserService implements UserServiceI {
     }
 
 
+
+
 //    @Override
 //    public void delete(Long id) {
 //        userRepository.deleteById(id);
 //    }
-
 
 
 }

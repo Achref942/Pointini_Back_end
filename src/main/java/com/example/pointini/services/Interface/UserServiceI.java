@@ -1,5 +1,6 @@
 package com.example.pointini.services.Interface;
 
+import com.example.pointini.entities.Pointage;
 import com.example.pointini.entities.User;
 
 import java.util.List;
@@ -24,7 +25,6 @@ public interface UserServiceI  {
     User findByEmail(String email);
 
     List<User> findByPassword(String password);
-
 
 
 
