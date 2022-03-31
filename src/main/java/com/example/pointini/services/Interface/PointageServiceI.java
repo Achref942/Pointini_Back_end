@@ -10,7 +10,6 @@ public interface PointageServiceI {
 
     Pointage findPointageByUserIdAndEtat(Long idUser,int etat);
 
-
     Pointage updatePointage(Pointage pointage, Long id);
 
     List<Pointage> getAllPointage();

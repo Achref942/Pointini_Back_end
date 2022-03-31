@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
+
 @Slf4j
 @Service
 public class PointageService implements PointageServiceI {
@@ -20,55 +21,45 @@ public class PointageService implements PointageServiceI {
     public UserService userService;
 
     @Override
-    public Pointage findPointageByUserIdAndEtat(Long idUser,int etat) {
-        return pointgeRepository.findPointageByUserIdAndEtat(idUser,etat);
+    public Pointage findPointageByUserIdAndEtat(Long idUser, int etat) {
+        return pointgeRepository.findPointageByUserIdAndEtat(idUser, etat);
     }
 
     @Override
     public Pointage createPointage(Pointage pointage, Long idUser) {
         User user = userService.findUserById(idUser);
-//        pointgeRepository.save(pointage);
         pointage.setUser(user);
         pointage.setArrive(LocalDateTime.now());
         pointage.setDate(LocalDate.now());
         pointage.setEtat(0);
         return pointgeRepository.save(pointage);
-
     }
 
     @Override
     public Pointage updatePointage(Pointage pointage, Long idUser) {
         User user = userService.findUserById(idUser);
-//        pointgeRepository.save(pointage);
         pointage.setUser(user);
-
         pointage.setSortir(LocalDateTime.now());
         pointage.setEtat(1);
-
         return pointgeRepository.save(pointage);
-
     }
 
     @Override
     public List<Pointage> getAllPointage() {
-
         return pointgeRepository.findAll();
     }
 
     @Override
     public Pointage checkPointage(Long idUser) {
-
-        if (pointgeRepository.findPointageByUserIdAndEtat(idUser,0) !=null) {
-            Pointage pointage = this.findPointageByUserIdAndEtat(idUser,0);
-
+        if (pointgeRepository.findPointageByUserIdAndEtat(idUser, 0) != null) {
+            Pointage pointage = this.findPointageByUserIdAndEtat(idUser, 0);
             this.updatePointage(pointage, idUser);
             return pointage;
-
         } else {
             Pointage pointage = new Pointage();
             this.createPointage(pointage, idUser);
             return pointage;
         }
-
     }
+
 }

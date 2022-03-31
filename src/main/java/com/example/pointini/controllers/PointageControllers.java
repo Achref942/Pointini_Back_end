@@ -1,14 +1,9 @@
 package com.example.pointini.controllers;
-
 import com.example.pointini.entities.Pointage;
-import com.example.pointini.entities.User;
 import com.example.pointini.services.PointageService;
 import com.example.pointini.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -44,7 +39,12 @@ public class PointageControllers {
     }
 
     @GetMapping(path = "/find/{idUser}")
-    Pointage findPointageByUserId(@PathVariable Long idUser) {
+    public Pointage findPointageByUserId(@PathVariable Long idUser) {
         return pointageService.findPointageByUserIdAndEtat(idUser, 0);
+    }
+
+    @GetMapping(path = "/findAllPointage")
+    public List<Pointage> findAllPointage(){
+        return pointageService.getAllPointage();
     }
 }
