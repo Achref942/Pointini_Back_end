@@ -1,5 +1,6 @@
 package com.example.pointini.services.Interface;
 
+import com.example.pointini.entities.Pause;
 import com.example.pointini.entities.Pointage;
 import com.example.pointini.entities.User;
 
@@ -26,6 +27,9 @@ public interface UserServiceI  {
 
     List<User> findByPassword(String password);
 
+    User addEntrepriseUser(Long idUser, Long idEntreprise);
+
+    Pause AddPauseUser(Long idPause, Long idUser);
 
 
     //    @Override

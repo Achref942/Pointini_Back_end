@@ -37,5 +37,8 @@ public class Entreprise implements Serializable {
             inverseJoinColumns = {@JoinColumn(name = "Pack_id",referencedColumnName = "id")}
     )
     private List<Pack> pack =new ArrayList<>();
+    @OneToMany(mappedBy = "entreprise")
+    private List<User> user;
+
 
 }

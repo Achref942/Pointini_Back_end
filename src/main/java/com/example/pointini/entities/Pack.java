@@ -29,6 +29,6 @@ public class Pack implements Serializable {
     private Date expiration;
 
 @ManyToMany(mappedBy = "pack",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-
     private List<Entreprise> entreprises =new ArrayList<>();
+
 }

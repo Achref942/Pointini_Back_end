@@ -9,26 +9,25 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-
 @RequestMapping(path = "/entreprise")
 public class EntrepriseControllers {
     @Autowired
     public EntrepriseService entrepriseService;
 
     //Create Entreprise
-    @PostMapping(path = "/createEntreprise")
+    @PostMapping(path = "/")
     public Entreprise createEntreprise(@RequestBody Entreprise entreprise){
         return entrepriseService.createEntreprise(entreprise);
     }
 
     //Update entreprise
-    @PutMapping(path = "/updateEntreprise")
+    @PutMapping(path = "/")
     public Entreprise updateEntreprise(@RequestBody Entreprise entreprise){
         return  entrepriseService.updateEntreprise(entreprise);
     }
 
     //Get All Entreprises
-    @GetMapping(path = "/getAllEntreprise")
+    @GetMapping(path = "/")
     public List<Entreprise> getAllEntreprise(){
         return entrepriseService.getAllEntreprise();
     }
@@ -43,6 +42,4 @@ public class EntrepriseControllers {
     public Pack AddPackToEntreprise (@PathVariable Long idPack, @PathVariable Long idEntreprise){
         return entrepriseService.AddPackToEntreprise(idPack,idEntreprise);
     }
-
-
 }

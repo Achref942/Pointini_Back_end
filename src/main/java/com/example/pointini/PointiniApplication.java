@@ -24,7 +24,7 @@ public class PointiniApplication {
     }
     @Bean
     CommandLineRunner start (UserService userService, PointageService pointageService){
-        return args -> { User user=userService.createUser(new User(1L,null,null,"null",null,22,null,null,null,null,null,null,null,null));
+        return args -> { User user=userService.createUser(new User(1L,null,null,"null",null,22,null,null,null,null,null,null,null,null,null,null));
             Pointage pointage=pointageService.createPointage(new Pointage(),user.getId());
             pointageService.updatePointage(pointage,user.getId());
 //        pointageService.checkPointage(user.getId());

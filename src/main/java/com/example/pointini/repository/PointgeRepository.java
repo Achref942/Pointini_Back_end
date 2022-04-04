@@ -9,7 +9,6 @@ import java.util.List;
 
 public interface PointgeRepository extends JpaRepository<Pointage, Long> {
 
-
     Pointage findPointageByUserIdAndEtat(Long user,int etat);
 
 }

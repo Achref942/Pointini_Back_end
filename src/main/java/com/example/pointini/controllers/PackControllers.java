@@ -17,19 +17,19 @@ public class PackControllers {
     private PackService packService;
 
     //Create Pack
-    @PostMapping(path="/createPack")
+    @PostMapping(path="/")
     public Pack createPack(@RequestBody  Pack pack){
         return packService.createPack(pack);
     }
 
     //Update Pack
-    @GetMapping(path="/updatePack")
+    @PutMapping(path="/")
     public Pack updatePack(@RequestBody Pack pack){
         return packService.updatePack(pack);
     }
 
     //Get all packs
-    @GetMapping(path = "getAllPack")
+    @GetMapping(path = "/")
     public List<Pack> getAllPack (){
         return packService.getAllPack();
     }

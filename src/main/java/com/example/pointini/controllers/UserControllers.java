@@ -1,9 +1,11 @@
 package com.example.pointini.controllers;
 
+import com.example.pointini.entities.Pause;
 import com.example.pointini.entities.User;
 
 
 import com.example.pointini.services.UserService;
+import net.bytebuddy.asm.Advice;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.HttpStatus;
@@ -123,19 +125,24 @@ public class UserControllers {
     public User Login(@PathVariable String email, @PathVariable String password) {
         User user = userService.findByEmail(email);
         BCryptPasswordEncoder cryptedPassword = new BCryptPasswordEncoder();
-
         if (cryptedPassword.matches(password, user.getPassword())) {
             System.out.println("Login avec succè");
             return user;
-
         } else {
             System.out.println("erreur de connection");
             return null;
         }
-
-
+    }
+    @PostMapping(path = "/addEntrepriseUser/{idUser}/{idEntreprise}")
+    public User addEntrepriseUser(@PathVariable Long idUser, @PathVariable Long idEntreprise) {
+        return userService.addEntrepriseUser(idUser,idEntreprise);
     }
 
+
+    @PostMapping(path = "/addPauseUser/{idPause}/{idUser}" )
+    public Pause addPauseUser(@PathVariable Long idPause,@PathVariable Long idUser){
+        return userService.AddPauseUser(idPause,idUser);
+    }
 
 
 

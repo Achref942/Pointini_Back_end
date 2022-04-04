@@ -8,9 +8,7 @@ import com.example.pointini.services.Interface.EntrepriseServiceI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-
 @Service
 public class EntrepriseService implements EntrepriseServiceI {
  @Autowired
@@ -43,6 +41,7 @@ public class EntrepriseService implements EntrepriseServiceI {
     public Pack AddPackToEntreprise(Long idPack, Long idEntreprise) {
         Entreprise entreprise = this.findEntrepriseById(idEntreprise);
         Pack pack = packRepository.findPackById(idPack);
+        entreprise.setExpirationPack(pack.getExpiration());
         entreprise.getPack().add(pack);
 
         return packRepository.save(pack);

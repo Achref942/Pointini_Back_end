@@ -9,6 +9,7 @@ import org.hibernate.type.TextType;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -42,8 +43,17 @@ public class User implements Serializable {
     @JsonIgnore
     @OneToMany(mappedBy = "user")
     private List<Pointage> pointage;
-
-
+    @JsonIgnore
+    @ManyToOne
+    private Entreprise entreprise;
+    @JsonIgnore
+    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @JoinTable(
+            name = "user_pause",
+            joinColumns = {@JoinColumn(name = "user_id" ,referencedColumnName = "id") },
+            inverseJoinColumns = {@JoinColumn(name = "pause_id",referencedColumnName = "id")}
+    )
+    private List<Pause> pauses=new ArrayList<>();
 
 
 
