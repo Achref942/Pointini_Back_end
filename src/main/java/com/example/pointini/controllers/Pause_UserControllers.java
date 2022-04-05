@@ -17,6 +17,6 @@ public class Pause_UserControllers {
     public Pause_UserService pause_userService;
     @PostMapping(path = "/{idPause}/{idUser}" )
     public Pause_User addPauseUser(@PathVariable Long idPause, @PathVariable Long idUser){
-        return pause_userService.createPause_User(idPause,idUser);
+        return pause_userService.addPause_User(idPause,idUser);
     }
 }

@@ -40,15 +40,20 @@ public class User implements Serializable {
     @JsonIgnore
     @ManyToOne
     private Role role;
+
     @JsonIgnore
     @OneToMany(mappedBy = "user")
     private List<Pointage> pointage;
+
     @JsonIgnore
     @ManyToOne
     private Entreprise entreprise;
+
     @JsonIgnore
     @OneToMany(mappedBy ="user")
     private List<Pause_User> pause_users=new ArrayList<>();
+
+
 
 
 

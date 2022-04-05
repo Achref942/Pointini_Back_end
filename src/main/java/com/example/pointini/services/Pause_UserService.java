@@ -19,7 +19,7 @@ public class Pause_UserService implements Pause_UserServiceI {
 
 
     @Override
-    public Pause_User createPause_User(Long idUser, Long idPause){
+    public Pause_User addPause_User(Long idUser, Long idPause){
         Pause_User pause_user= new Pause_User();
         pause_user.setPause(pauseService.findPauseById(idPause));
         pause_user.setUser(userService.findUserById(idUser));
