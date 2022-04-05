@@ -139,10 +139,10 @@ public class UserControllers {
     }
 
 
-    @PostMapping(path = "/addPauseUser/{idPause}/{idUser}" )
-    public Pause addPauseUser(@PathVariable Long idPause,@PathVariable Long idUser){
-        return userService.AddPauseUser(idPause,idUser);
-    }
+//    @PostMapping(path = "/addPauseUser/{idPause}/{idUser}" )
+//    public Pause addPauseUser(@PathVariable Long idPause,@PathVariable Long idUser){
+//        return userService.AddPauseUser(idPause,idUser);
+//    }
 
 
 

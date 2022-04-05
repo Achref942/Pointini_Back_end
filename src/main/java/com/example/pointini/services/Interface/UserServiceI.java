@@ -29,7 +29,7 @@ public interface UserServiceI  {
 
     User addEntrepriseUser(Long idUser, Long idEntreprise);
 
-    Pause AddPauseUser(Long idPause, Long idUser);
+   // Pause AddPauseUser(Long idPause, Long idUser);
 
 
     //    @Override

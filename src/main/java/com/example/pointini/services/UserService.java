@@ -95,13 +95,13 @@ public class UserService implements UserServiceI {
         return this.updateUser(user);
     }
 
-    @Override
-    public Pause AddPauseUser (Long idPause,Long idUser){
-        User user=this.findUserById(idUser);
-        Pause pause=pauseRepository.getById(idPause);
-        user.getPauses().add(pause);
-        return pauseRepository.save(pause);
-    }
+//    @Override
+//    public Pause AddPauseUser (Long idPause,Long idUser){
+//        User user=this.findUserById(idUser);
+//        Pause pause=pauseRepository.getById(idPause);
+//        user.getPauses().add(pause);
+//        return pauseRepository.save(pause);
+//    }
 
 
 

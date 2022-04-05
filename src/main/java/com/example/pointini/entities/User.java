@@ -47,13 +47,8 @@ public class User implements Serializable {
     @ManyToOne
     private Entreprise entreprise;
     @JsonIgnore
-    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-    @JoinTable(
-            name = "user_pause",
-            joinColumns = {@JoinColumn(name = "user_id" ,referencedColumnName = "id") },
-            inverseJoinColumns = {@JoinColumn(name = "pause_id",referencedColumnName = "id")}
-    )
-    private List<Pause> pauses=new ArrayList<>();
+    @OneToMany(mappedBy ="user")
+    private List<Pause_User> pause_users=new ArrayList<>();
 
 
 

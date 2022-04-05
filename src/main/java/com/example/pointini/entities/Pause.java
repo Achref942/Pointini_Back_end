@@ -20,8 +20,8 @@ public class Pause implements Serializable {
     private String type;
     private int duree;
 
-    @ManyToMany(mappedBy = "pauses",cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-    private List<User> user=new ArrayList<>();
+    @OneToMany(mappedBy = "pause")
+    private List<Pause_User> pause_users=new ArrayList<>();
 
 
 
