@@ -1,5 +1,6 @@
 package com.example.pointini.entities;
 
+import com.example.pointini.entities.Enum.HeureMiniute;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,11 +14,12 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Pause implements Serializable {
+public class Pause extends Pause_User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String type;
+    private HeureMiniute type;
+    private String libelle;
     private int duree;
 
     @OneToMany(mappedBy = "pause")
