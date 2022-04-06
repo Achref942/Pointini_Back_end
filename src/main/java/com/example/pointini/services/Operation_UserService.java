@@ -35,7 +35,7 @@ public class Operation_UserService implements Operation_UserI {
         operation_user.setUser(user);
         operation_user.setOperation(operation);
         operation_user.setDateOperation(LocalDateTime.now());
-        return operation_user;
+        return operation_userRepository.save(operation_user);
     }
     else {
         s=s+operation.getMontant();
@@ -47,4 +47,9 @@ public class Operation_UserService implements Operation_UserI {
         return operation_userRepository.save(operation_user);
     }
     }
+//    @Override
+//    public Operation_User addOperationAllUser(Long idOperation){
+//        Opera
+//
+//    }
 }

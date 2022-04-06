@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class Operation_User implements Serializable {
     @EmbeddedId
-    Operation_UserKey id;
+    Operation_UserKey id=new Operation_UserKey()    ;
 
     @ManyToOne
     @MapsId("UserId")

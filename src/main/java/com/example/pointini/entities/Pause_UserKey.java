@@ -7,7 +7,7 @@ import java.io.Serializable;
 @Embeddable
 public class Pause_UserKey implements Serializable {
     @Column(name = "User_id")
-    long UserId;
+    Long UserId;
     @Column(name = "Pause_id")
-    long PauseId;
+    Long PauseId;
 }

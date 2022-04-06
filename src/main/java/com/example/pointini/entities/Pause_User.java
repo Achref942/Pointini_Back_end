@@ -1,5 +1,6 @@
 package com.example.pointini.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,7 +15,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class Pause_User implements Serializable {
     @EmbeddedId
-    Pause_UserKey id;
+    private  Pause_UserKey id=new Pause_UserKey();
 
     @ManyToOne
     @MapsId("UserId")
