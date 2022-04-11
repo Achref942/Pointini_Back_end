@@ -19,7 +19,6 @@ public class Operation_User implements Serializable {
     @MapsId("UserId")
     @JoinColumn(name = "User_id")
     private User user;
-
     @ManyToOne
     @MapsId("OperationId")
     @JoinColumn(name = "Operation_id")
